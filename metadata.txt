@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Área queimada Landsat
+qgisMinimumVersion=2.0
+description=This plugin you can see burn of image Landsat
+version=0.1
+author=Cícero Alves dos Santos Júnior
+email=cicerocasj@gmail.com
+
+about=This plugin has as porpose to display burned area of the satellite Landsat
+
+tracker=https://github.com/cicerocasj/landsat_burn-area
+repository=https://github.com/cicerocasj/landsat_burn-area
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=landsat, vector, raster, layers
+
+homepage=https://github.com/cicerocasj
+category=Web
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
