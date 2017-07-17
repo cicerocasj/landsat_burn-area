@@ -167,19 +167,19 @@ class AreaQueimada:
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
         self.add_action(
-            '/home/cicero/ownCloud/Documents/script_cicero/AreaQueimada/icon.png',
+            os.path.join(BASE_DIR, 'AreaQueimada', 'icon.png'),
             text=self.tr(u'RGB'),
             callback=self.rgb,
             parent=self.iface.mainWindow()
         )
         self.add_action(
-            '/home/cicero/Desktop/favicon.ico',
+            os.path.join(BASE_DIR, 'AreaQueimada', 'favicon.ico'),
             text=self.tr(u'AQM - Auditoria'),
             callback=self.auditoria,
             parent=self.iface.mainWindow()
         )
         self.add_action(
-            '/home/cicero/ownCloud/Documents/script_cicero/AreaQueimada/r.png',
+            os.path.join(BASE_DIR, 'AreaQueimada', 'r.png'),
             text=self.tr(u'Gera Conhecimento - R'),
             callback=self.gera_conhecimento,
             parent=self.iface.mainWindow()
