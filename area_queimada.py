@@ -231,8 +231,6 @@ class AreaQueimada:
         progress = QProgressBar()
         if result:
             cena = self.dlg.CENA.text()
-            cena = "LC82250702016119LGN00.tar.bz"
-
             # dados
             dia = cena[13:16]
             orb_pto = '%s_%s' % (cena[3:6], cena[6:9])
@@ -248,6 +246,7 @@ class AreaQueimada:
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh.connect(self.SERVER_RGB, username=self.USER, password=self.KEY)
             sftp = ssh.open_sftp()
+            print path_download
             arquivos = sftp.listdir(path_download)
             todos_rgb = filter(lambda x: x.upper()[-3:] in ('TIF', 'JPG'), arquivos)
             arquivo_data = filter(lambda x: x.count(data) and x.count("RGB"), todos_rgb)
