@@ -302,26 +302,17 @@ class AreaQueimada:
         return log
 
     def atalho_teclado(self):
-        shortcut1 = QShortcut(QKeySequence(Qt.ALT + Qt.Key_1), self.iface.mainWindow())
+        shortcut1 = QShortcut(QKeySequence(Qt.Key_1), self.iface.mainWindow())
         shortcut1.setContext(Qt.ApplicationShortcut)
         shortcut1.activated.connect(self.setVerifica1)
 
-        shortcut3 = QShortcut(QKeySequence(Qt.ALT + Qt.Key_3), self.iface.mainWindow())
+        shortcut2 = QShortcut(QKeySequence(Qt.Key_2), self.iface.mainWindow())
+        shortcut2.setContext(Qt.ApplicationShortcut)
+        shortcut2.activated.connect(self.setVerifica2)
+
+        shortcut3 = QShortcut(QKeySequence(Qt.Key_3), self.iface.mainWindow())
         shortcut3.setContext(Qt.ApplicationShortcut)
         shortcut3.activated.connect(self.setVerifica3)
-
-    def setVerifica3(self):
-        print "alterando 3"
-        if self.iface.activeLayer().name() in ['auditada', 'minerada']:
-            print "mudou 3"
-            layer = self.iface.activeLayer()
-            layer.startEditing()
-            for f in layer.selectedFeatures():
-                f["verifica"] = 3
-                layer.updateFeature(f)
-            layer.commitChanges()
-            self.iface.setActiveLayer(layer)
-        print "nao mudou 3"
 
     def setVerifica1(self):
         print "alterando 1"
@@ -335,6 +326,32 @@ class AreaQueimada:
             layer.commitChanges()
             self.iface.setActiveLayer(layer)
         print "nao mudou 1"
+
+    def setVerifica2(self):
+        print "alterando 2"
+        if self.iface.activeLayer().name() in ['auditada', 'minerada']:
+            print "mudou 2"
+            layer = self.iface.activeLayer()
+            layer.startEditing()
+            for f in layer.selectedFeatures():
+                f["verifica"] = 2
+                layer.updateFeature(f)
+            layer.commitChanges()
+            self.iface.setActiveLayer(layer)
+        print "nao mudou 2"
+
+    def setVerifica3(self):
+        print "alterando 3"
+        if self.iface.activeLayer().name() in ['auditada', 'minerada']:
+            print "mudou 3"
+            layer = self.iface.activeLayer()
+            layer.startEditing()
+            for f in layer.selectedFeatures():
+                f["verifica"] = 3
+                layer.updateFeature(f)
+            layer.commitChanges()
+            self.iface.setActiveLayer(layer)
+        print "nao mudou 3"
 
     def exec_sql(self, sql):
         string_connection = "dbname=%s host=%s user=%s password=%s" % (self.DB, self.HOST, self.USER, self.KEY)
